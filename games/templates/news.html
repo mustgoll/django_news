@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+
+</head>
+<body>
+<div style="position: relative">
+    <div style="width: 560px;height: 305px;position: absolute;left: 20%;top:10px">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                {% for item in imgcontect %}
+                    <li data-target="#carousel-example-generic"
+                        data-slide-to={{ forloop.counter0 }} class="active"></li>
+                {% endfor %}
+            </ol>
+            <!-- Wrapper for slides -->
+            {% load splitedata %}
+            <div class="carousel-inner" role="listbox" style="width: 561px;height: 305px;background-color:lavender;">
+                {% for item in imgcontect %}
+                    {% if forloop.first %}
+                        <div class="item active">
+                            <a href={{ item.url }} target="_blank">
+                                <img src={% img_url item.urlcontect '---' 'right' %}
+                                             alt=>
+                                <div class="carousel-caption">
+                                    <p>{% img_url item.urlcontect '---' 'left' %}</p>
+                                </div>
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="item">
+                            <a href={{ item.url }} target="_blank">
+                                <img src={% img_url item.urlcontect '---' 'right' %} alt>
+                                <div class="carousel-caption">
+                                    <p>{% img_url item.urlcontect '---' 'left' %}</p>
+                                </div>
+
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<div class="list-group" style="width: 560px;position: absolute;left: 20%;top:300px">
+    <h3 class="list-group-item " style="color:darkblue;background-color:silver;">热 点 要 闻</h3>
+    {% for i in link1 %}
+        <a href={{ i.url }} class="list-group-item" target="_blank">{{ i.urlcontect }}</a>
+    {% endfor %}
+</div>
+<div class="list-group" style="width: 560px;position: absolute;left: 50%;top:10px">
+    <h3 class="list-group-item " style="color:darkblue;background-color:silver;">热 点 要 闻</h3>
+    {% for i in link2 %}
+        <a href={{ i.url }} class="list-group-item" target="_blank">{{ i.urlcontect }}</a>
+    {% endfor %}
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
+        #top {
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
+            font: inherit;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+
+        .imga {
+            width: 314px;
+            height: 177px;
+            margin: 20px 10px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+
+    </style>
+</head>
+<body style="height: 900px">
+<div id="top">
+    {% load splitedata %}
+    {% for item in content %}
+    <div class="imga">
+        <a href={{ item.url }} target='_blank'>
+            <img src={% img_url item.urlcontent '---' 'left' %} alt="">
+            <span class="text-success">{% img_url item.urlcontent '---' 'right' %}</span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

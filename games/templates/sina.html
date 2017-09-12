@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+
+</head>
+<body >
+<div style="width: 800px;height: 1000px;margin: 0 auto;background-color:white;position: relative">
+    <div style="width: 200px;position: absolute;left: 10px;top:50px">
+        <ul class="nav nav-tabs nav-stacked" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><h3>实时热搜榜</h3></a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><h3>热点热搜榜(暂未开放)</h3></a></li>
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><h3>潮流热搜榜(暂未开放)</h3></a></li>
+            <li role="presentation"><a href="#setting" aria-controls="settings" role="tab" data-toggle="tab"><h3>名人热搜榜(暂未开放)</h3></a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home" style="position:absolute;top: 60px;left: 300px;width: 500px">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>排名</th>
+                    <td>关键词</td>
+                    <td>搜索指数</td>
+                </tr>
+                </thead>
+                {% load splitedata %}
+                <tbody>
+                {% for item in contect %}
+                <tr>
+                    <th>{{ item.id }}</th>
+                    <td><a href={{ item.url }} target='_blank'>{% img_url item.utlstr '---' 'left' %}</a></td>
+                    <td>{% img_url item.utlstr '---' 'right' %}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages" style="position:absolute;top: 60px;left: 300px;width: 500px">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>排名</th>
+                    <td>关键词</td>
+                    <td>搜索指数</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>c</td>
+                    <td>d</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="settings" style="position:absolute;top: 60px;left: 300px;width: 500px">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>排名</th>
+                    <td>关键词</td>
+                    <td>搜索指数</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>c</td>
+                    <td>d</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="setting" style="position:absolute;top: 60px;left: 300px;width: 500px">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>排名</th>
+                    <td>关键词</td>
+                    <td>搜索指数</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>c</td>
+                    <td>d</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/static/bootstrap.min.js"></script>
+
+</html>

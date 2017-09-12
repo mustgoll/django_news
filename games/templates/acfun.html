@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+
+    <style>
+        #main{
+            margin: 0 auto;
+            width: 50%;
+            height: 950px;
+        }
+        #top{
+            margin:0 auto;
+            width: 100%;
+            height: auto;
+            font: inherit;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            flex-direction: row;
+            flex-wrap:wrap;
+            justify-content: space-around;
+
+        }
+        #ranking{
+            margin: 10px auto;
+            width: 100%;
+            height: 500px;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            flex-direction: row;
+            flex-wrap:wrap;
+            justify-content: space-around;
+
+        }
+        .imga{
+            width: 160px;
+            height: 90px;
+            margin: 10px 10px;
+        }
+        .rank{
+            width: 260px;
+            height: 480px;
+            margin: 10px 20px;
+            background-color: white;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius:15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="top">
+            {% load splitedata %}
+            {% for item in imgcontent %}
+            <div class="imga">
+                <a href={{ item.url }} target='_blank'>
+                    <img src={% img_url item.urlcontent '---' 'left' %} alt="">
+                    <span style="display: inline-block;width: 160px;height: 20px;overflow: hidden">{% img_url item.urlcontent '---' 'right' %}</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="ranking">
+            <div class="rank">
+                    <div class="list-group"style="width: 100%;">
+                        <h3 class="list-group-item " style="color:darkblue;background-color:silver;">文章·工作情感</h3>
+                        {% for item in rankcontent|slice:'0:11' %}
+                        <a href={{ item.url }} class="list-group-item" target="_blank">{{ item.urlcontent }}</a>
+                        {% endfor %}
+                    </div>
+            </div>
+            <div class="rank">
+                    <div class="list-group"style="width: 100%;">
+        <h3 class="list-group-item " style="color:darkblue;background-color:silver;">娱乐排行榜</h3>
+                        {% for item in rankcontent|slice:'11:21' %}
+                        <a href={{ item.url }} class="list-group-item" target="_blank">{{ item.urlcontent }}</a>
+                        {% endfor %}
+    </div>
+            </div>
+            <div class="rank">
+                    <div class="list-group"style="width: 100%;">
+        <h3 class="list-group-item " style="color:darkblue;background-color:silver;">科技排行榜</h3>
+                        {% for item in rankcontent|slice:'21:' %}
+                        <a href={{ item.url }} class="list-group-item" target="_blank">{{ item.urlcontent }}</a>
+                        {% endfor %}
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
