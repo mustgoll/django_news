@@ -51,4 +51,4 @@ pip install pymysql
 
 ## 项目参考
 
-[https://github.com/](https://github.com/)
+[https://github.com/mustgoll/django_news](https://github.com/mustgoll/django_news)
