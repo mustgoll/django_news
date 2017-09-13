@@ -7,8 +7,8 @@
 前端部分主要通过bootstrap框架+ajax快速开发，界面最简化，至于观赏性，请忽略-，-
 后端部分通过django+mysql+spider组成，由爬虫爬取相关网站的数据
 储存至数据库，通过django模版引擎解析至前端网页。
-线上结构:django+uwsgi+ngnix
-#####声明：网站内容为第三方网站获取，只能作为学习交流，非商业用途
+线上结构:django+uwsgi+ngnix 39.108.234.29
+##### 声明：网站内容为第三方网站获取，只能作为学习交流，非商业用途
 
 ### 安装Python
 
@@ -33,7 +33,7 @@ cd django_spider
 ```
 run.py
 ```
-###安装依赖
+### 安装依赖
 
 ```
 pip install requests
@@ -43,7 +43,7 @@ pip install Beautfulsoup
 pip install pymysql
 ```
 
-####django模块
+#### django模块
 
     请使用manage.py创建数据库相关表单
     安装相关依赖库开始运行
